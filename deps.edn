@@ -1,13 +1,14 @@
 {:paths   ["src"]
- :deps    {org.clojure/clojure              {:mvn/version "1.11.1"}
-           org.apache.jena/apache-jena-libs {:mvn/version "4.5.0"
+ :deps    {org.clojure/clojure              {:mvn/version "1.12.0"}
+           org.apache.jena/apache-jena-libs {:mvn/version "4.9.0" ; (was 4.5.0) use of 5.2.0 etc. might require newer clojure > 1.12.0
                                              :extension   "pom"}
-           ont-app/vocabulary               {:mvn/version "0.1.7"}
+           ont-app/vocabulary               {:mvn/version "0.4.2"}
 
            ;; Adds missing javax.xml.bind.DatatypeConverter in Java 9+
-           javax.xml.bind/jaxb-api          {:mvn/version "2.4.0-b180830.0359"}}
+           javax.xml.bind/jaxb-api          {:mvn/version "2.4.0-b180830.0359"}
+           #_#_jakarta.xml.bind/jakarta.xml.bind-api  {:mvn/version "4.0.2"}}
  :aliases {:test {:extra-paths ["test"]
                   :extra-deps  {io.github.cognitect-labs/test-runner {:git/tag "v0.5.1" :git/sha "dfb30dd"}
-                                ch.qos.logback/logback-classic       {:mvn/version "1.2.11"}}
+                                ch.qos.logback/logback-classic       {:mvn/version "1.5.12"}}
                   :main-opts   ["-m" "cognitect.test-runner"]
                   :exec-fn     cognitect.test-runner.api/test}}}
